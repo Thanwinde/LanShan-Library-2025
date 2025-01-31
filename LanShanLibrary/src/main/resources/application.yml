@@ -1,9 +1,0 @@
-spring:
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://121.40.101.83:11451/library?useSSL=true&serverTimezone=UTC&characterEncoding=UTF-8
-    username: TWind
-    password: UserPassisnsh250.
-#这个账户只有此表的权限，谨防sql勒索
-mybatis:
-  mapper-locations: classpath:/mapper/**/*.xml
