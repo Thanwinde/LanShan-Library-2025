@@ -14,6 +14,8 @@
 
 2025.2.5第七次更新，更新了请求集，优化了推荐机制及头像删除;
 
+2025.2.7第八次更新，彻底修复了在UserDetails认证完后会自动跳转到updatePassword方法的问题，原因是多继承了UserDetailsPasswordService接口；优化了BCryptPasswordEncoder的获取，自定义了authenticationProvider使其显式使用DaoAuthenticationProvider及BCryptPasswordEncoder，极大的规范化了代码。
+
 ## 0.项目简介：
 
 **蓝山图书馆管理系统** ，~~常驻嘉宾了属实是~~  
@@ -340,3 +342,5 @@
 * ~~早知道用shiro了~~
 
 * 2.5，大概完成得差不多了，接下来就是哪天想到新东西就加进去......
+
+* 2.7，接下来应该会尝试规范化spring security的一系列配置及代码......
