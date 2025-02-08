@@ -1,5 +1,7 @@
 # 蓝山Java后端2025寒假单人考核项目
 
+**有两种版本，JWT版和session版，以下介绍为session版，两版本于api无区别，仅认证方式不同**
+
 2025.1.30第一次更新，上传了初始demo
 
 2025.1.31第二次更新，修复了并发登陆拦截不了的bug
@@ -14,7 +16,9 @@
 
 2025.2.5第七次更新，更新了请求集，优化了推荐机制及头像删除;
 
-2025.2.7第八次更新，彻底修复了在UserDetails认证完后会自动跳转到updatePassword方法的问题，原因是多继承了UserDetailsPasswordService接口；优化了BCryptPasswordEncoder的获取，自定义了authenticationProvider使其显式使用DaoAuthenticationProvider及BCryptPasswordEncoder，极大的规范化了代码。
+2025.2.7第八次更新，彻底修复了在UserDetails认证完后会自动跳转到updatePassword的问题，优化了BCryptPasswordEncoder的获取,规范化了代码。
+
+2025.2.8第九次更新，新增了JWT版，并优化了认证框架
 
 ## 0.项目简介：
 
@@ -39,6 +43,8 @@
 已经部署在了121.40.101.83/LanShanLibrary
 
 **我提供了一套体验请求于仓库中，导入PostMan即可**
+
+**JWT版要使用的话得先手动添加登陆成功返回的JWT**
 
 ---
 
