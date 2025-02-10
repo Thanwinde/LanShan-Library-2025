@@ -44,7 +44,7 @@
 
 全部接口均按照**REST**标准编写。
 
-已经部署在了121.40.101.83/LanShanLibrary
+已经部署在了121.40.101.83/LanShanLibrary（session版）
 
 **我提供了一套体验请求于仓库中，导入PostMan即可**
 
