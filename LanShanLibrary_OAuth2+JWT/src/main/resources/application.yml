@@ -1,0 +1,29 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: Ov23liTTXiUFlz6Xur4H
+            client-secret: 470c149c2dd76c5b8b57399703d2fa446febb694
+            #redirect-uri: "http://localhost:8080/LanShanLibrary/login/oauth2/code/github"
+
+
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/library?useSSL=true&serverTimezone=UTC&characterEncoding=UTF-8
+#    url: jdbc:mysql://121.40.101.83:11451/library?useSSL=true&serverTimezone=UTC&characterEncoding=UTF-8
+#    username: TWind
+#    password: UserPassisnsh250.
+    username: root
+    password: 123456
+#这个账户只有此表的权限，谨防sql勒索
+mybatis:
+  mapper-locations: classpath:/mapper/**/*.xml
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
