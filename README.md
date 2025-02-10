@@ -1,6 +1,6 @@
 # 蓝山Java后端2025寒假单人考核项目
 
-**有两种版本(未来可能还会有OAuth2版)，JWT版和session版，以下介绍为session版，两版本于api无区别，仅认证方式不同**
+**有三种版本，JWT版，JWT+OAuth2版和session版，以下介绍为session版，所有版本于api无区别，仅认证方式不同**
 
 2025.1.30第一次更新，上传了初始demo
 
