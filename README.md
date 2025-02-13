@@ -1,6 +1,6 @@
 # 蓝山Java后端2025寒假单人考核项目
 
-**有三种版本，JWT版，session版和Oauth2 +ＪＷＴ版，以下介绍为session版，各个版本于api无区别，仅认证方式不同**
+**有两种版本(未来可能还会有OAuth2版)，JWT版和session版，以下介绍为session版，两版本于api无区别，仅认证方式不同**
 
 2025.1.30第一次更新，上传了初始demo
 
@@ -126,13 +126,15 @@
 
 > 内有handler子目录
 >
-> 是对于登陆失败，权限不够等各种情况的处理器
+> 里面是各种情况的处理器
 
-![image-20250130195832075](assets/image-20250130195832075.png)
+![image-20250213113516760](assets/image-20250213113516760.png)
 
 **DBUserDetailsManger**是自定义UserDetail的类，用以实现从数据库获取账户信息认证并自定义户凭证信息列表，比如加入用户的ID
 
 **GlobaExceptionHandler**是全局异常处理器，我其实在每个controller都加了比较充分的异常处理，这个作用是处理我没想到的异常
+
+**EmailAuthorization**是用于发送验证邮件的类
 
 -----
 
@@ -140,11 +142,15 @@
 
 > 内含工具类
 
-![image-20250130203023799](assets/image-20250130203023799.png)
+![image-20250213113734781](assets/image-20250213113734781.png)
 
-内含雪花算法生成ID的工具 SnowFlakeGenerator
+内含雪花算法生成ID的工具 **SnowFlakeGenerator**
 
-以及BCrypt加密器：BCryptCreater
+提取/生成JWT的**JWTService**
+
+检查密码的合法性的**PasswordChecker**
+
+以及BCrypt加密器：**BCryptCreater**
 
 ------
 
@@ -195,22 +201,22 @@
 > /login
 
 * 朴实无华的登陆接口
-* 其中分为post,与get两个不同的接口，get会返回登录界面，post会转发给loginProcessingUrl,我设置成了/dologin
+* 其中分为post,与get两个不同的接口，get会返回登录界面，post会转发给**loginProcessingUrl**,我设置成了/dologin
 * 这样能检测重复登陆，但是不开启csrf的话可以直接post到/dologin来跳过验证
 * 如果要用postman测试的话，需要先get一下拿到_csrf再加到post请求中才可登陆，后续操作也要加上
 * 为了测试方便我就先关了csrf，可随时开启
 
 > /user/add
 
-* root管理员才能用的接口，新建一个具有admin权限的用户
+* **root**管理员才能用的接口，新建一个具有**admin**权限的用户
 
 > /user/register
 
-* 未认证也可用，注册一个具有user权限的用户
+* 未认证也可用，注册一个具有**user**权限的用户
 
 > /user/delete
 
-* 删除用户，只有管理员可使用，可批量删除,删除管理员需要root权限
+* 删除用户，只有管理员可使用，可批量删除,删除管理员需要**root**权限
 
 > /user/list
 
@@ -218,7 +224,7 @@
 
 > /user/status
 
-* 查看当前登陆的账户的详细信息,包括sessionID等敏感信息
+* 查看当前登陆的账户的详细信息,包括**sessionID**等敏感信息
 
 > /user/account
 
@@ -226,7 +232,27 @@
 
 > /user/editaccount
 
-* 修改指定用户的用户名，密码，最大借阅数，给什么改什么，操作管理员账户需要root权限
+* 修改指定用户的用户名，密码，最大借阅数，给什么改什么，操作管理员账户需要**root**权限
+
+> /user/email
+
+* 绑定邮箱的接口，会发送一封验证邮件到指定邮箱
+
+> /user/email/{jwt}
+
+* 绑定邮箱的邮件地址，会从jwt提取出信息进行绑定
+
+> /user/emailregister
+
+* 邮箱登录的接口，如果该邮箱未被注册则会自动注册并发送验证邮件
+
+> /user//emailregister/{jwt}
+
+* 同上，提取信息并注册
+
+> /user/emaillogin/{jwt}
+
+* 如果该邮箱已被注册，邮箱验证地址会导向此处进行登录，会调用**emailLoginHandler**的**emaillogin**来手动存储上下文实现登录
 
 ### 用户社交区:
 
