@@ -1,0 +1,25 @@
+2025-02-15 14:26:21 INFO o.s.b.StartupInfoLogger [main] Starting DemoApplicationTests using Java 23 with PID 2332 (started by thanw in E:\JavaSourceCode\LanShanLibrary)
+2025-02-15 14:26:21 INFO o.s.b.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2025-02-15 14:26:21 DEBUG o.s.c.s.AbstractApplicationContext [main] Refreshing org.springframework.web.context.support.GenericWebApplicationContext@7a94b64e
+2025-02-15 14:26:23 TRACE o.s.s.c.a.a.c.AuthenticationConfiguration$EnableGlobalAuthenticationAutowiredConfigurer [main] Eagerly initializing {webSecurityConfig=com.LanShan.Library.securityconfig.WebSecurityConfig$$SpringCGLIB$$0@632241f5}
+2025-02-15 14:26:23 INFO o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer [main] Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-02-15 14:26:23 WARN o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer [main] Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-02-15 14:26:23 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 48 mappings in 'requestMappingHandlerMapping'
+2025-02-15 14:26:24 DEBUG o.s.w.s.h.SimpleUrlHandlerMapping [main] Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2025-02-15 14:26:24 DEBUG o.s.s.w.DefaultSecurityFilterChain [main] Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, OAuth2AuthorizationRequestRedirectFilter, OAuth2AuthorizationRequestRedirectFilter, OAuth2LoginAuthenticationFilter, UsernamePasswordAuthenticationFilter, ConcurrentSessionFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, OAuth2AuthorizationCodeGrantFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2025-02-15 14:26:24 INFO o.s.v.b.OptionalValidatorFactoryBean [main] Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-02-15 14:26:25 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter [main] ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-02-15 14:26:25 DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver [main] ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-02-15 14:26:25 INFO o.s.b.StartupInfoLogger [main] Started DemoApplicationTests in 3.807 seconds (process running for 4.884)
+2025-02-15 14:26:25 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2025-02-15 14:26:26 INFO c.z.h.p.HikariPool [main] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@11771fd6
+2025-02-15 14:26:26 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
+2025-02-15 14:26:26 DEBUG o.a.i.l.j.BaseJdbcLogger [main] ==>  Preparing: select book.label,count(*) as count from bookfavor join book on book.id = bookfavor.book_id where bookfavor.user_id = ? GROUP BY book.label ORDER BY count ASC
+2025-02-15 14:26:26 DEBUG o.a.i.l.j.BaseJdbcLogger [main] ==> Parameters: 1(String)
+2025-02-15 14:26:26 DEBUG o.a.i.l.j.BaseJdbcLogger [main] <==      Total: 0
+2025-02-15 14:26:26 DEBUG o.a.i.l.j.BaseJdbcLogger [main] ==>  Preparing: select id, name from book
+2025-02-15 14:26:26 DEBUG o.a.i.l.j.BaseJdbcLogger [main] ==> Parameters: 
+2025-02-15 14:26:26 DEBUG o.a.i.l.j.BaseJdbcLogger [main] <==      Total: 2
+2025-02-15 14:26:26 DEBUG o.s.c.s.AbstractApplicationContext [SpringApplicationShutdownHook] Closing org.springframework.web.context.support.GenericWebApplicationContext@7a94b64e, started on Sat Feb 15 14:26:21 CST 2025
+2025-02-15 14:26:26 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2025-02-15 14:26:26 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
